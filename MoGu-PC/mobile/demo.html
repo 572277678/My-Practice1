@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>0-0</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="shortcut icon" href="../images/favicon.png">
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-controller="cont">
+	<div id="head">
+       <div class="search">
+       		<a href="#" class="img-icon"></a>
+       </div>
+    </div>
+
+    <div class="swiper-container" id="slide">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide page">
+			</div>
+			<div class="swiper-slide page">
+			</div>
+			<div class="swiper-slide page">
+			</div>
+			<div class="swiper-slide page">
+			</div>
+			<div class="swiper-slide page">
+			</div>
+			<div class="swiper-slide page">
+			</div>
+        </div>
+    </div>
+
+	<script src="../js/swiper.min.js"></script>
+    <script src="../js/swiper.animate1.0.2.min.js"></script>
+    <script src="../js/index.js"></script>
+	<script>
+		var mySwiper = new Swiper ('#slide', {
+			direction: 'vertical',
+			freeMode : true,
+		  
+			spaceBetween : 5,
+		}); 
+		var app=angular.module("myapp",[]);
+		app.controller("cont",function($scope){
+			
+		});
+		
+	</script>
+</body>
+</html>

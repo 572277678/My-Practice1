@@ -1,0 +1,37 @@
+@charset "utf-8";
+$fontSize:23;
+@function r($px){
+	@return $px/2/$fontSize+rem;
+}
+@mixin setPm($name,$val...){
+	$max:length($val);
+	$str:'';
+	@for $i from 1 through $max{
+		$value:nth($val,$i)/2/$fontSize;
+		$str:#{$str+$value}rem;//0.43478rem
+		@if $i <$max{
+			$str:#{$str+" "};
+		}
+
+	}
+	#{$name}:$str;
+}
+//------------------------
+#head{
+	width:100%;
+	height:r(178);
+	background:blue;
+	.search{
+		width:100%;
+		height:r(178);
+		@include setPm(padding,30,20,30,20);
+		background:yellow;
+		.img-icon{
+			width:r(200);
+			height:100%;
+			display:inline-block;
+			background:url(../images/66.png) r(60) center no-repeat;
+			background-size:r(90) auto; 
+		}
+	}
+}
