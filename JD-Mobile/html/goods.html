@@ -1,0 +1,153 @@
+<!-- 头部广告 -->
+<div class="top2">
+    <div class="top_content">
+        <div class="cha top_pic" id="as">
+            <img src="imgs/icon-close.png" alt="">
+        </div>
+        <div class="top_pic top_logo">
+            <img src="imgs/top-jdlogo.png" alt="">
+        </div>
+        <div class="top_pic top_txt">
+            <span class="txt_content">
+                <em class="txt_top">打开京东APP购物</em>
+                <em class="txt_foot">新人领188元红包</em>
+            </span>
+        </div>
+        <div class="top_pic top_right">
+            <span class="liji">立即打开</span>
+        </div>
+    </div>
+</div>            
+<!-- 标题 -->
+<div class="head">
+    <div class="head_content">
+        <div class="head_left">
+            <a href="#/"><span></span></a>
+        </div>
+        <div class="head_center">京东超市</div>
+        <div class="head_right">
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- 头部搜索 -->
+<div class="search">
+    <a href="#" class="search_left">
+        <img src="imgs/gang.png.webp" alt="">
+    </a>
+    <div class="search_right">
+        <div class="seach_content">
+            <div class="fdj1"></div>
+            <div class="sou1">
+                <input type="seach" placeholder="轻松逛超市" ng-model="selec">
+            </div>
+        </div>
+    </div>  
+</div>
+
+<div class="search1">
+    <a href="#" class="search_left">
+        <img src="imgs/gang.png.webp" alt="">
+    </a>
+    <div class="search_right">
+        <div class="seach_content">
+            <div class="fdj"></div>
+            <div class="sou1">
+                <input type="seach" placeholder="轻松逛超市" ng-model="selec">
+            </div>
+        </div>
+    </div>  
+</div>
+<!-- 头部广告 -->
+<div class="gif">
+    <a href="#">
+        <img src="imgs/1.gif" alt="">
+    </a>
+</div>
+<!-- 热门推荐 -->
+<div class="hot">
+    <div class="tuijian_top">
+        <span class="gray-layout">
+            <span class="gray-text-img"></span>
+            为您推荐
+        </span>
+    </div>
+</div>
+
+<ul class="list">
+    <!-- 商品列表循环开始 -->
+
+    <li ng-repeat="item in data|filter:{describe:selec}">
+        <img ng-src="{{item.img}}">
+            <div class="contro">
+            <p>{{item.describe}}</p>
+            <p>白条支付，12期免息</p>
+            <p>{{item.price|currency:"￥"}}</p>
+
+            <button ng-click="set(item.goodsId,true)" style="width:0.8rem;height:0.3rem">加入购物车</button>
+        </div>
+    
+    </li>
+
+    <!-- 商品列表循环结束 -->
+
+</ul> 
+      
+<div style="height:0.5rem;width:100%;"></div>
+<!-- 尾部 -->
+<div class="foot">
+    <div class="foot_ul">
+        <div class="klkl">
+            <a href="#/">
+                <span class="bar-img">
+                    <img src="imgs/zan.png" alt="">
+                </span>
+            </a>
+        </div>
+        <div class="klkl">
+            <a href="#">
+                <span class="bar-img">
+                    <img src="imgs/fenlei.png" alt="">
+                </span>
+            </a>
+        </div>
+        <div class="klkl">
+            <a href="#">
+                <span class="bar-img">
+                    <img src="imgs/find.png" alt="">
+                </span>
+            </a>
+        </div>
+        <div class="klkl">
+            <a href="#/cart">
+                <span class="bar-img">
+                    <img src="imgs/che.png" alt="">
+                </span>
+            </a>
+        </div>
+        <div class="klkl">
+            <a href="#">
+                <span class="bar-img">
+                    <img src="imgs/me.png" alt="">
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div style="height:50px"></div> -->
+
+<!-- <div class="bottom_nav" style="z-index:1003;">
+
+
+    <div class="cart">
+        <a href="#/cart">
+            <img id="end" src="./images/cart.png" alt="">
+            去购物车
+        </a>
+        <span>{{cart.length}}</span>
+    </div>
+</div> -->
+<!-- 商品列表页结束 -->
+

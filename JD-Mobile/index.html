@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <title>京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！</title>
+  <link rel="icon" href="imgs/favicon.ico" mce_href="//www.jd.com/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/index2.css">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-route.js"></script>
+</head>
+<body ng-controller="cont">
+  	<div id="wrap" ng-view>
+    </div> 
+
+
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/main.js"></script> 
+</body>
+</html>
+<script>
+    var app=angular.module("myapp",['ngRoute'],RouteConfig);
+    // 路由模块开始
+    function RouteConfig($routeProvider){
+        $routeProvider
+            .when('/',{
+                templateUrl:"html/index_one.html"
+            })
+            .when('/cart',{
+                templateUrl:"html/cart.html"
+            })
+            .when('/goods',{
+                templateUrl:"html/goods.html"
+            })
+          
+            
+    };
+    app.directive('direc',function(){
+
+        return {
+            restrict:'AE', 
+            replace : true, 
+            compile:function(){
+              var mySwiper = new Swiper ('.swiper-container', {
+          
+                 });
+       
+             }
+        };
+    });
+    app.filter("substrs",function(){
+        return function(val,num){
+            if(val.length>num){
+                val=val.substring(0,num)+"...";
+            }
+            return val;
+        }
+    })
+    app.controller("cont",function($scope){
+    	$scope.data=[ 
+		    {"goodsId":"egtdf","img":"imgs/a.jpg.webp","describe":"Apple iPhone 6 32G 金色 移动联通电信4G手机","price":"2578"},
+		    {"goodsId":"ktyum","img":"imgs/b.jpg.webp","describe":"荣耀 畅玩6X 4GB 32GB 全网通4G手机 高配版 铂光金","price":"1299"},
+		    {"goodsId":"hytr","img":"imgs/c.jpg.webp","describe":"Apple iPhone 6s Plus (A1699) 32G 玫瑰金色 移动联通电信4G手机","price":"3999"},
+		    {"goodsId":"635","img":"imgs/d.jpg.webp","describe":"联想(Lenovo)拯救者R720 15.6英寸游戏笔记本电脑","price":"5988"},
+		    {"goodsId":"745","img":"imgs/e.jpg.webp","describe":"戴尔DELL灵越游匣15PR-2648B 15.6英寸游戏笔记本电脑","price":"4799"},
+		    {"goodsId":"hggh","img":"imgs/f.jpg.webp","describe":"惠普(HP)暗影精灵II代Pro 暗影红 15.6英寸游戏笔记本","price":"5999"},
+		    {"goodsId":"jrxg","img":"imgs/g.jpg.webp","describe":"【京东超市】美素佳儿（Friso）金装较大婴儿配方奶粉","price":"199"},
+		    {"goodsId":"jgt","img":"imgs/h.jpg.webp","describe":"【京东超市】惠氏启赋（Wyeth illuma）幼儿配方奶粉","price":"298"},
+		    {"goodsId":"rtyk","img":"imgs/i.jpg.webp","describe":"索尼（SONY）KD-55X7000D 55英寸高清4K HDR 安卓6.0系统 智能液晶电视","price":"4799"},
+		    {"goodsId":"bnxb","img":"imgs/j.jpg.webp","describe":"三星（SAMSUNG）UA55KUF30ZJXXZ 55英寸 HDR 4K超高清 智能电视 黑色","price":"3899"},
+		    {"goodsId":"7425t","img":"imgs/k.jpg.webp","describe":"NIKE耐克2017春夏新款男鞋板鞋运动鞋","price":"399"},
+		    {"goodsId":"00012","img":"imgs/l.jpg.webp","describe":"安踏男鞋夏季运动鞋男士透气网面跑步鞋anta官方旗舰店轻便耐磨跑鞋子","price":"189"}
+		   ];
+      angular.forEach($scope.data,function(item){
+
+      		item.num=0;
+      		item.price=-(-(item.price));
+      });
+      $scope.cart=[];   
+      $scope.set=function(goodsId,bool){
+          console.log("abcccc"); // 商品ID
+
+          angular.forEach($scope.data,function(item,index){
+              if(goodsId==item.goodsId){
+                
+                  if(bool){
+                      if(item.num==0){
+                          item.num=1;
+                          $scope.cart.push(item);
+                      }else{
+                          item.num++;
+                          
+                      }
+                  }else{
+                      item.num--;
+                      item.num=item.num<=0?0:item.num;
+                  }
+              }
+          })
+        
+      }
+      $scope.$watch("cart",function(){
+        $scope.allPrice=0;
+            angular.forEach($scope.cart,function(item,index){ 
+                $scope.allPrice+=item.num*item.price;
+                 if(item.num<=0){$scope.cart.splice(index,1)};
+            })
+      },true);
+    });
+
+</script>

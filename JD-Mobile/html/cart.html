@@ -1,0 +1,96 @@
+            
+            <!-- 购物车商品列表页开始 -->
+            <div style="height:50px"></div>
+            
+            <div class="top_nav">
+                <div class="left fl" >
+
+
+                <!-- 返回首页 -->
+                	<a href="#/goods">
+                		<span  class="fl" style="font-size:40px;color:#fff"><</span>
+                	</a>
+                    <span class="fl">欢迎来到购物车</span>
+                </div>
+                <img class="user fr" src="imgs/user.png" />
+            </div>
+
+            <ul>
+
+              <!-- 购物车商品列表循环 -->
+                  <li ng-repeat="item in cart">
+                    <img ng-src="{{item.img}}">
+                        <div class="contro">
+                            <p>{{item.describe}}</p>
+                            <p>白条支付，12期免息</p>
+                            <p>{{item.price|currency:"￥"}}</p>
+
+                            <button class="lbtn" ng-click="set(item.goodsId,true)">+</button>
+                            <span>   
+                                   {{item.num}}
+                            </span>
+
+                            <button class="rbtn" ng-click="set(item.goodsId,false)">-</button>
+                             <button style="width:80px;height:30px;background:red;" ng-click="item.num=0">删除</button>
+                        </div>
+
+                </li>
+
+              <!-- 购物车商品列表循环结束 -->
+
+            </ul> 
+
+        <div style="height:1rem"></div>
+
+        <div class="bottom_nav" style="z-index:1003;">
+            <a  class="bottom_button" href="javascript:void(0)">结算</a>
+            <span class="btn">总价:{{allPrice|currency:"￥"}}</span>
+            <div class="cart">
+                <img id="end" src="imgs/cart.png" alt="">
+                <span>{{cart.length}}</span>
+            </div>
+        </div>
+
+            <!-- 购物车商品列表页开始 -->
+<!-- 尾部 -->
+<div class="foot">
+    <div class="foot_ul">
+        <div class="klkl">
+            <a href="#/">
+                <span class="bar-img">
+                    <img src="imgs/zan.png" alt="">
+                </span>
+            </a>
+        </div>
+        <div class="klkl">
+            <a href="#">
+                <span class="bar-img">
+                    <img src="imgs/fenlei.png" alt="">
+                </span>
+            </a>
+        </div>
+        <div class="klkl">
+            <a href="#">
+                <span class="bar-img">
+                    <img src="imgs/find.png" alt="">
+                </span>
+            </a>
+        </div>
+        <div class="klkl">
+            <a href="#">
+                <span class="bar-img">
+                    <img src="imgs/che.png" alt="">
+                </span>
+            </a>
+        </div>
+        <div class="klkl">
+            <a href="#">
+                <span class="bar-img">
+                    <img src="imgs/me.png" alt="">
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+
+

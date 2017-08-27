@@ -1,0 +1,60 @@
+<header>
+	<div class="cart-head">
+		<div class="head-left">
+			<a href="#/one">
+				<img src="../images/41.png" alt="">
+			</a>
+		</div>
+		<div class="head-middle">购物车</div>
+		<div class="head-right">
+			<a href="#">
+				<span>编辑</span>
+				<span>
+					<img src="../images/40.png" alt="">
+				</span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<!-- <div class="emptycart">
+	<p class="empty-icon">
+		<img src="../images/66.png" alt="">
+	</p>
+	<p class="empty-text">购物车还是空的哦～</p>
+	<p class="empty-btn">
+		<a href="#/one" class="btn-base" >去逛逛</a>
+	</p>
+</div> -->
+<ul>
+  <!-- 购物车商品列表循环 -->
+      <li ng-repeat="item in cart">
+        <img ng-src="{{item.img}}">
+            <div class="contro">
+                <p>{{item.describe}}</p>
+                <p>{{item.price|currency:"￥"}}</p>
+                <p>{{item.zan}}</p>
+
+                <button class="lbtn" ng-click="set(item.goodsId,true)">+</button>
+                <span>   
+                       {{item.num}}
+                </span>
+                <button class="rbtn" ng-click="set(item.goodsId,false)">-</button>
+                
+                 <button class="clearbtn" ng-click="item.num=0">删除</button>
+            </div>
+
+    </li>
+  <!-- 购物车商品列表循环结束 -->
+</ul> 
+
+<div style="height:50px"></div>
+
+<div class="bottom_nav">
+    <a  class="bottom_button" href="javascript:void(0)">结算</a>
+    <span class="btn">总价:{{allPrice|currency:"￥"}}</span>
+    <div class="cart">
+        <img id="end" src="../images/cart.png" alt="">
+        <span>{{cart.length}}</span>
+    </div>
+</div>
